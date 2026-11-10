@@ -89,76 +89,6 @@ export const GRAPHIC_DESIGN_PROJECTS: DesignProject[] = [
     client: "Artisanal Japanese Cuisine",
     desc: "High-energy promotional social media poster featuring an appetizing sushi platter arrangement, dynamic diagonal blue blocking, repeated typographic background textures, and high-conversion call-to-action layout.",
     tools: ["Adobe Illustrator", "Photoshop", "Social Ad Campaign"]
-  },
-
-  // ==========================================
-  // 🎨 BRANDING, PACKAGING & EDITORIAL
-  // ==========================================
-  {
-    id: "project-01",
-    title: "Nomad Coffee — Artisanal Identity & Packaging",
-    tag: "BRAND IDENTITY & PACKAGING",
-    category: "branding",
-    img: "./assets/images/nomad-coffee-branding.svg",
-    date: "CASE 01",
-    client: "Nomad Roasters",
-    desc: "Complete visual identity system for artisanal specialty coffee roasters. Featuring tactile foil textures, bespoke Canela typography, sensory tasting note icons, and sustainable kraft pouch packaging.",
-    tools: ["Adobe Illustrator", "Photoshop", "Print Pre-press"]
-  },
-  {
-    id: "project-02",
-    title: "Cyberpunk Editorial Key Art & Typography",
-    tag: "POSTER ART & TYPOGRAPHY",
-    category: "posters",
-    img: "./assets/images/cyberpunk-poster-design.svg",
-    date: "CASE 02",
-    client: "Editorial Fiction Press",
-    desc: "Neo-noir typographic poster system combining Swiss grid discipline with chromatic aberration shaders. Features custom Japanese glyph typesetting, spot-UV gloss specifications, and B1 print sizing.",
-    tools: ["Adobe Photoshop", "InDesign", "Typography Grid"]
-  },
-  {
-    id: "project-03",
-    title: "Aethel Sustainable Apparel Rebrand",
-    tag: "BRAND REBRAND & MERCH",
-    category: "branding",
-    img: "./assets/images/aethel-apparel-rebrand.svg",
-    date: "CASE 03",
-    client: "Aethel Goods Co.",
-    desc: "Holistic visual rebrand for an ethical circular streetwear manufacturer. Focused on raw unbleached cotton hangtags, soy-based ink care labels, earthy neutral chromatic palette, and geometric logomark.",
-    tools: ["Adobe Illustrator", "Brand Strategy", "Packaging Mockups"]
-  },
-  {
-    id: "project-04",
-    title: "Chrono Arcade Synthwave Promotional Suite",
-    tag: "GAMING & EVENT KEY ART",
-    category: "posters",
-    img: "./assets/images/chrono-arcade-keyart.svg",
-    date: "CASE 04",
-    client: "Chrono Indie Studios",
-    desc: "High-octane visual package for a retro-futurist arcade title. Produced dynamic 4K streaming overlays, holographic badges, pixel art glyphs, and commemorative metallic foil poster prints.",
-    tools: ["Photoshop", "After Effects", "Vector Art"]
-  },
-  {
-    id: "project-05",
-    title: "Kroma Studio Capabilities & Pitch Deck",
-    tag: "EDITORIAL & PRESENTATION",
-    category: "editorial",
-    img: "./assets/images/kroma-pitchdeck-editorial.svg",
-    date: "CASE 05",
-    client: "Kroma Creative Agency",
-    desc: "Bespoke 40-slide agency capabilities presentation. Designed with high-contrast typography, interactive chart overlays, minimalist editorial grid alignments, and modular 16:9 presentation templates.",
-    tools: ["Figma", "Adobe InDesign", "Editorial Layout"]
-  },
-  {
-    id: "project-06",
-    title: "Lumina Botanicals Luxury Packaging Design",
-    tag: "PACKAGING & PRODUCT DESIGN",
-    category: "packaging",
-    img: "./assets/images/lumina-packaging-design.svg",
-    date: "CASE 06",
-    client: "Lumina Organics",
-    desc: "Minimalist luxury skincare packaging featuring custom amber apothecary glass bottles, clean Swiss typographic labels, tactile embossed paper boxes, and metallic gold foil stamping.",
-    tools: ["Adobe Illustrator", "3D Mockup", "Packaging Dieline"]
   }
 ];
 
@@ -221,41 +151,5 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     title: "DELICIOUS SUSHI PROMOTIONAL POSTER",
     body: "Eye-catching culinary promotional design built for digital menus and social media advertising. Features an overhead perspective circular sushi platter focal point, high-contrast diagonal brand ribbon, textured typographic watermark, and clear call-to-action metrics.",
     deliverables: ["Social Media Promotional Ad Suite", "Overhead Culinary Layout & Color Balancing", "Diagonal Typographic Grid Design", "Digital Call-To-Action (CTA) Banners"]
-  },
-  case1: {
-    tag: "CASE STUDY 01 // IDENTITY & PACKAGING",
-    title: "NOMAD COFFEE BRAND SYSTEM",
-    body: "Complete brand architecture for a specialty artisanal coffee roaster. Included custom logomarks, tactile packaging foil stamps, sensory tasting note icons, and an editorial e-commerce aesthetic built for high-end boutique retail.",
-    deliverables: ["Primary & Secondary Logomarks", "Matte Pouch & Kraft Box Packaging", "Sensory Tasting Card System", "Brand Identity Guidelines Manual"]
-  },
-  case2: {
-    tag: "CASE STUDY 02 // POSTER ART DIRECTION",
-    title: "CYBERPUNK EDITORIAL KEY ART",
-    body: "A comprehensive neo-noir visual system developed for high-impact promotional posters. Featuring bespoke typographic grids, custom Japanese glyph typesetting, and dual-tone chromatic aberration shaders designed to command immediate attention.",
-    deliverables: ["B1 Format High-Res Print Masters", "Spot-UV Coating Separation Files", "Japanese Font Pairing Guidelines", "Limited Edition Numbered Posters"]
-  },
-  case3: {
-    tag: "CASE STUDY 03 // SUSTAINABILITY REBRAND",
-    title: "AETHEL APPAREL VISUAL REBRAND",
-    body: "Holistic visual rebrand for an ethical streetwear manufacturer. Focused on unbleached earth tones, raw macro fabric textures, and a modular vector design system built for sustainable recycled hangtags and lookbooks.",
-    deliverables: ["Modular Vector Brand Emblem", "Recycled Paper Hangtag Dielines", "Soy-Ink Care Label Typography", "Garment Care Icon Library"]
-  },
-  case4: {
-    tag: "CASE STUDY 04 // GAMING & SYNTHWAVE",
-    title: "CHRONO ARCADE GAME SUITE",
-    body: "High-octane visual package for a retro-futurist indie arcade title. Produced dynamic Twitch stream overlays, animated tournament scoreboards, custom HUD typography, and commemorative physical poster prints.",
-    deliverables: ["4K Broadcast Stream Overlays", "Custom Pixel Glyph Fontset", "Holographic Tournament Badges", "Promotional Key Art Posters"]
-  },
-  case5: {
-    tag: "CASE STUDY 05 // EDITORIAL PITCH DECK",
-    title: "KROMA STUDIO CAPABILITIES DECK",
-    body: "Custom-crafted 40-slide agency capabilities presentation. Designed with high-contrast typography, interactive chart overlays, and minimalist editorial grid alignments for closing 6-figure enterprise client retainers.",
-    deliverables: ["40-Slide Master Figma System", "Infographic & Chart Vector Assets", "Editorial Typography Scale", "Keynote & PDF Distribution Formats"]
-  },
-  case6: {
-    tag: "CASE STUDY 06 // LUXURY PACKAGING",
-    title: "LUMINA BOTANICALS PACKAGING",
-    body: "Minimalist organic skincare line featuring custom amber glass bottles, Swiss typographic layout, tactile embossed paper boxes, and premium gold foil stamping for boutique luxury beauty retailers.",
-    deliverables: ["30ml Amber Glass Label Specification", "Embossed Outer Box Packaging Dieline", "Gold Foil Vector Tooling Files", "Studio Product Mockup Suite"]
   }
 };

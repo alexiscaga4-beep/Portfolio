@@ -171,7 +171,7 @@ export class PortfolioApp {
 
     // Dynamically render project cards from GRAPHIC_DESIGN_PROJECTS
     grid.innerHTML = GRAPHIC_DESIGN_PROJECTS.map((proj, idx) => {
-      const isWide = idx === 0 || idx === 6 ? ' art-card-wide' : '';
+      const isWide = idx === 0 ? ' art-card-wide' : '';
       const isClientWork = proj.id.includes('client') || proj.date.includes('CLIENT');
       const isSchoolWork = proj.id.includes('school') || proj.date.includes('SCHOOL') || proj.category.includes('school');
       return `
