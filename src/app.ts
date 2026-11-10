@@ -177,7 +177,7 @@ export class PortfolioApp {
       return `
         <article class="art-card glass-panel${isWide}${isClientWork ? ' client-highlight-card' : ''}${isSchoolWork && !isClientWork ? ' school-highlight-card' : ''}" data-category="${proj.category}" data-index="${idx}">
           <div class="art-media-wrap">
-            <img src="${proj.img}" alt="${proj.title}" class="art-img" loading="lazy" />
+            <img src="${proj.img}" alt="${proj.title}" class="art-img" loading="lazy" onerror="this.onerror=null;if(this.src.indexOf('assets/images')!==-1){this.src=this.src.replace('assets/images','images')}else{this.src=this.src.replace('images','assets/images')}" />
             <div class="art-overlay">
               <span class="art-zoom-badge">🔍 INSPECT DESIGN</span>
             </div>
@@ -233,6 +233,16 @@ export class PortfolioApp {
     if (!art) return;
 
     if (this.lightboxImg) {
+      this.lightboxImg.onerror = () => {
+        if (this.lightboxImg && !this.lightboxImg.dataset.retried) {
+          this.lightboxImg.dataset.retried = '1';
+          const currentSrc = this.lightboxImg.src;
+          this.lightboxImg.src = currentSrc.includes('assets/images')
+            ? currentSrc.replace('assets/images', 'images')
+            : currentSrc.replace('/images/', '/assets/images/');
+        }
+      };
+      this.lightboxImg.dataset.retried = '';
       this.lightboxImg.src = art.img;
       this.lightboxImg.alt = art.title;
     }
