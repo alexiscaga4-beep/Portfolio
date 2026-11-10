@@ -1,15 +1,55 @@
-# Alexis Deniel Caga — 3D Scrollytelling Portfolio
+# Alexis Deniel Caga — Graphic Design Portfolio (TypeScript + Vite)
 
-A high-performance, cinematic **3D Scrollytelling Portfolio** built for **Alexis Deniel Caga** (Creative Technologist, Digital Artist, Graphic Designer, and Video Editor).
+A high-performance, cinematic **Graphic Design & Brand Identity Portfolio** built for **Alexis Deniel Caga**, powered by **TypeScript**, **Three.js (WebGL)**, and **Vite**.
 
-## 🚀 Key Highlights & Architecture
+---
 
-- **3D Scrollytelling Engine**: Built with **Three.js (WebGL)** featuring camera choreography, glowing wireframe geometric portals, and a 1,200-particle star cosmos that travels with you as you scroll up and down.
-- **Signature Scrubber Rail & Timecode**: Real-time left-rail scrubber displaying active layer indicators, playhead position, and real-time SMPTE timecode (`00:MM:SS:FF`).
-- **Curated Original Artworks**: Features high-resolution concept illustrations (*Giyu Tomioka Study*, *Own Character No. 1*, *Toph Beifong*, *Expression Studies*, and *Environment Matte Painting*) with interactive 3D tilt and a full-featured inspection lightbox.
-- **4K Filmstrip Reel Simulator**: 35mm sprocket filmstrip with dynamic canvas audio visualizer and interactive playback controls.
-- **Web Audio API Synthesizer**: Zero external audio files required — generates subtle futuristic UI tones natively in real time.
-- **Optimized for Vercel Free Hosting**: 100% lightweight static delivery, edge-cached assets, 0ms cold-start, 60+ FPS performance.
+## 🎨 Focus: Graphic Design & Brand Identity
+
+This portfolio is centered on **Graphic Design disciplines**:
+- **Brand Identity Systems**: Logos, chromatic specs, typography scales, brand guidelines.
+- **Product Packaging**: Retail boxes, coffee pouches, luxury apothecary glass labels, dielines.
+- **Editorial Typography & Key Art**: Swiss grid layouts, bilingual poster typesetting, spot-UV specs.
+- **Digital Marketing Suites**: Pitch decks, social media campaigns, stream overlays, brand assets.
+
+---
+
+## 📸 HOW TO ADD OR CHANGE PICTURES
+
+Adding pictures to your portfolio is simple. You only need to touch **one folder** and **one file**:
+
+### Step 1: Put Your Image in the `public/images/` Folder
+Copy your design image (`.png`, `.jpg`, `.jpeg`, `.webp`, or `.svg`) into:
+```
+Portfolio/public/images/
+```
+*Example: Save your file as `public/images/my-brand-project.jpg`.*
+
+---
+
+### Step 2: Add Your Project in [src/data.ts](file:///c:/antigravity_projects/Portfolio/src/data.ts)
+Open [src/data.ts](file:///c:/antigravity_projects/Portfolio/src/data.ts) and add your project to `GRAPHIC_DESIGN_PROJECTS`:
+
+```typescript
+{
+  id: "project-07",
+  title: "My Brand Design Name",
+  tag: "BRAND IDENTITY & PACKAGING",
+  category: "branding", // Pick one: 'branding' | 'posters' | 'packaging' | 'editorial'
+  img: "./assets/images/my-brand-project.jpg", // (or "/images/my-brand-project.jpg")
+  date: "CASE 07",
+  client: "Client or Studio Name",
+  desc: "Brief explanation of what you designed, fonts used, and color palette.",
+  tools: ["Adobe Illustrator", "Photoshop", "Print Prep"]
+}
+```
+
+### Step 3: That's It! ✨
+Save the file! Your website automatically:
+1. Renders your new design card in the **Featured Works** grid.
+2. Applies 3D mouse hover tilt and zoom badge.
+3. Connects category filtering (`BRANDING`, `POSTERS`, `PACKAGING`, `EDITORIAL`).
+4. Generates a high-resolution lightbox inspector popup when clicked!
 
 ---
 
@@ -17,36 +57,40 @@ A high-performance, cinematic **3D Scrollytelling Portfolio** built for **Alexis
 
 ```
 Portfolio/
-├── index.html            # Main HTML5 document with full SEO & schema
-├── style.css             # High-contrast cyber-editorial styling
-├── vercel.json           # Vercel edge deployment configuration
-├── src/
-│   ├── three-scene.js    # Three.js 3D camera trajectory & WebGL particles
-│   └── app.js            # App orchestrator, audio synth, lightbox & scrubber
-└── assets/
-    └── images/           # High-resolution original artworks & assets
-        ├── giyu.png
-        ├── owncharacter1.png
-        ├── toph.png
-        ├── expressions.png
-        └── background.png
+├── index.html            # Main HTML5 document with SEO & Graphic Design meta
+├── style.css             # Cyber-editorial design tokens & responsive styles
+├── package.json          # Vite + TypeScript + Three.js scripts & dependencies
+├── tsconfig.json         # Strict TypeScript configuration
+├── vite.config.ts        # Vite build configuration with chunking
+├── vercel.json           # Vercel deployment configuration
+├── public/
+│   └── images/           # 💡 PUT YOUR PROJECT PICTURES HERE (.png, .jpg, .svg)
+└── src/
+    ├── types.ts          # Strongly-typed data models for DesignProject & CaseStudy
+    ├── data.ts           # 💡 EDIT THIS FILE TO ADD/CHANGE PROJECT DETAILS
+    ├── audio.ts          # Synthesized Web Audio API sound feedback
+    ├── three-scene.ts    # Three.js 3D WebGL background cosmos
+    ├── app.ts            # Dynamic project card renderer, filters & lightbox
+    └── main.ts           # Application entry point & lifecycle bootstrap
 ```
 
 ---
 
-## 🌐 Deploy to Vercel (Free Hosting)
+## 💻 Local Commands
 
-1. **Push to GitHub / GitLab / Bitbucket**:
+- **Run Dev Server**: `npm run dev` (Runs locally at `http://localhost:3000/`)
+- **Type Check**: `npm run type-check`
+- **Build for Production**: `npm run build`
+- **Preview Build**: `npm run preview`
+
+---
+
+## 🌐 1-Click Deployment on Vercel
+
+1. Commit and push your changes to GitHub:
    ```bash
-   git init
    git add .
-   git commit -m "Initial commit of Alexis Deniel Caga 3D portfolio"
-   git branch -M main
-   git remote add origin <your-repo-url>
-   git push -u origin main
+   git commit -m "Update portfolio with new graphic design projects"
+   git push origin main
    ```
-2. **Import into Vercel**:
-   - Go to [vercel.com](https://vercel.com) and click **"Add New Project"**.
-   - Select your repository.
-   - Framework Preset: **Other (Static)**
-   - Click **Deploy** — your portfolio is live worldwide in seconds!
+2. Connect your repo on [Vercel](https://vercel.com) — it will build and deploy automatically to edge CDN with fast global loading!

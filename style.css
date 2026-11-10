@@ -799,6 +799,91 @@ img {
   transform: scale(1.06);
 }
 
+.art-card[data-category*="advertising"] .art-media-wrap,
+.art-card[data-category*="posters"] .art-media-wrap,
+.art-card[data-category*="client"] .art-media-wrap {
+  height: 440px;
+  background: radial-gradient(circle at center, rgba(32, 32, 44, 0.6) 0%, rgba(10, 10, 14, 0.98) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+}
+
+.art-card-wide[data-category*="client"] .art-media-wrap,
+.art-card-wide[data-category*="posters"] .art-media-wrap {
+  height: 520px;
+  background: radial-gradient(circle at center, rgba(60, 48, 22, 0.5) 0%, rgba(12, 12, 16, 0.98) 100%);
+}
+
+.art-card[data-category*="advertising"] .art-img,
+.art-card[data-category*="posters"] .art-img,
+.art-card[data-category*="client"] .art-img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+}
+
+/* Star badge for Debut Client Work */
+.client-star-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(14, 14, 18, 0.92);
+  border: 1px solid var(--accent-amber);
+  color: var(--accent-amber);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 18px rgba(255, 210, 63, 0.35);
+  z-index: 5;
+  backdrop-filter: blur(8px);
+}
+
+.client-highlight-card {
+  border-color: rgba(255, 210, 63, 0.35);
+  box-shadow: 0 8px 30px rgba(255, 210, 63, 0.08);
+}
+
+.client-highlight-card:hover {
+  border-color: var(--accent-amber);
+  box-shadow: 0 16px 45px rgba(255, 210, 63, 0.22);
+}
+
+/* Badge & Glow for School / Academic Projects */
+.school-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(14, 14, 18, 0.92);
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 18px rgba(56, 189, 248, 0.35);
+  z-index: 5;
+  backdrop-filter: blur(8px);
+}
+
+.school-highlight-card {
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 8px 30px rgba(56, 189, 248, 0.08);
+}
+
+.school-highlight-card:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 16px 45px rgba(56, 189, 248, 0.25);
+}
+
 .art-overlay {
   position: absolute;
   inset: 0;

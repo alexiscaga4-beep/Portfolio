@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="100%" height="100%">
+  <defs>
+    <linearGradient id="deckBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141416"/>
+      <stop offset="50%" stop-color="#1E1E22"/>
+      <stop offset="100%" stop-color="#101012"/>
+    </linearGradient>
+    <filter id="deckShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="15" dy="25" stdDeviation="30" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#deckBg)"/>
+
+  <!-- Left: Overview & Scope -->
+  <g transform="translate(100, 140)">
+    <text x="0" y="30" font-family="'JetBrains Mono', monospace" font-size="12" fill="#E2B857" letter-spacing="4">CASE STUDY 05 // EDITORIAL PITCH DECK</text>
+    <text x="0" y="85" font-family="'Anton', sans-serif" font-size="58" fill="#FFFFFF" letter-spacing="2">KROMA STUDIO</text>
+    <text x="0" y="145" font-family="'Anton', sans-serif" font-size="58" fill="#E2B857" letter-spacing="2">CAPABILITIES DECK</text>
+
+    <text x="0" y="200" font-family="'Space Grotesk', sans-serif" font-size="15" fill="#B4B4BC" width="380">
+      <tspan x="0" dy="0">Custom-crafted 40-slide agency capabilities presentation.</tspan>
+      <tspan x="0" dy="24">Designed with high-contrast typography, interactive chart overlays,</tspan>
+      <tspan x="0" dy="24">and minimalist editorial grid alignments.</tspan>
+    </text>
+
+    <!-- Color Palette -->
+    <g transform="translate(0, 290)">
+      <text x="0" y="0" font-family="'JetBrains Mono', monospace" font-size="11" fill="#888894" letter-spacing="2">EDITORIAL PALETTE</text>
+      
+      <rect x="0" y="15" width="60" height="60" rx="8" fill="#E2B857"/>
+      <text x="0" y="90" font-family="'JetBrains Mono', monospace" font-size="10" fill="#E2B857">#E2B857</text>
+      <text x="0" y="103" font-family="'Space Grotesk', sans-serif" font-size="10" fill="#777782">Champagne</text>
+
+      <rect x="75" y="15" width="60" height="60" rx="8" fill="#FFFFFF"/>
+      <text x="75" y="90" font-family="'JetBrains Mono', monospace" font-size="10" fill="#FFFFFF">#FFFFFF</text>
+      <text x="75" y="103" font-family="'Space Grotesk', sans-serif" font-size="10" fill="#777782">Pure White</text>
+
+      <rect x="150" y="15" width="60" height="60" rx="8" fill="#2A2A30"/>
+      <text x="150" y="90" font-family="'JetBrains Mono', monospace" font-size="10" fill="#B4B4BC">#2A2A30</text>
+      <text x="150" y="103" font-family="'Space Grotesk', sans-serif" font-size="10" fill="#777782">Slate Basalt</text>
+
+      <rect x="225" y="15" width="60" height="60" rx="8" fill="#141416" stroke="rgba(255,255,255,0.2)"/>
+      <text x="225" y="90" font-family="'JetBrains Mono', monospace" font-size="10" fill="#B4B4BC">#141416</text>
+      <text x="225" y="103" font-family="'Space Grotesk', sans-serif" font-size="10" fill="#777782">Obsidian</text>
+    </g>
+
+    <!-- Slide Metrics -->
+    <g transform="translate(0, 440)">
+      <rect width="360" height="150" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+      <text x="20" y="30" font-family="'JetBrains Mono', monospace" font-size="11" fill="#E2B857" letter-spacing="2">DECK SPECIFICATIONS</text>
+      
+      <text x="20" y="65" font-family="'Space Grotesk', sans-serif" font-size="13" fill="#FFFFFF">• 16:9 4K Presentation Templates (Figma &amp; Keynote)</text>
+      <text x="20" y="92" font-family="'Space Grotesk', sans-serif" font-size="13" fill="#FFFFFF">• Custom Vector Infographic Assets &amp; Timelines</text>
+      <text x="20" y="119" font-family="'Space Grotesk', sans-serif" font-size="13" fill="#FFFFFF">• Clean Swiss Layout With Modular Typography System</text>
+    </g>
+  </g>
+
+  <!-- Right: 16:9 Presentation Slide Mockup -->
+  <g transform="translate(560, 160)">
+    <!-- Main Slide -->
+    <g filter="url(#deckShadow)">
+      <rect width="560" height="320" rx="12" fill="#18181C" stroke="#2C2C34" stroke-width="2"/>
+      
+      <!-- Slide Content -->
+      <g transform="translate(40, 40)">
+        <text x="0" y="0" font-family="'JetBrains Mono', monospace" font-size="10" fill="#E2B857" letter-spacing="3">PAGE 01 // CAPABILITIES OVERVIEW</text>
+        <text x="480" y="0" font-family="'JetBrains Mono', monospace" font-size="10" fill="#666672" text-anchor="end">KROMA 2026</text>
+
+        <text x="0" y="45" font-family="'Anton', sans-serif" font-size="36" fill="#FFFFFF" letter-spacing="2">DESIGN AT SCALE</text>
+        
+        <text x="0" y="80" font-family="'Space Grotesk', sans-serif" font-size="12" fill="#A2A2B0">
+          Transforming category leaders through disciplined brand strategy,
+          exceptional editorial design, and dynamic interactive identities.
+        </text>
+
+        <!-- Metric Cards Inside Slide -->
+        <g transform="translate(0, 120)">
+          <rect width="145" height="90" rx="8" fill="#222228"/>
+          <text x="18" y="35" font-family="'Anton', sans-serif" font-size="30" fill="#E2B857">140+</text>
+          <text x="18" y="65" font-family="'Space Grotesk', sans-serif" font-size="10" fill="#888894">GLOBAL CAMPAIGNS</text>
+
+          <rect x="165" width="145" height="90" rx="8" fill="#222228"/>
+          <text x="183" y="35" font-family="'Anton', sans-serif" font-size="30" fill="#FFFFFF">99.4%</text>
+          <text x="183" y="65" font-family="'Space Grotesk', sans-serif" font-size="10" fill="#888894">CLIENT RETENTION</text>
+
+          <rect x="330" width="145" height="90" rx="8" fill="#222228"/>
+          <text x="348" y="35" font-family="'Anton', sans-serif" font-size="30" fill="#E2B857">18x</text>
+          <text x="348" y="65" font-family="'Space Grotesk', sans-serif" font-size="10" fill="#888894">INDUSTRY HONORS</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Secondary Overlapping Slide Below -->
+    <g transform="translate(40, 240)" filter="url(#deckShadow)">
+      <rect width="520" height="280" rx="12" fill="#E2B857"/>
+      <g transform="translate(40, 50)">
+        <text x="0" y="0" font-family="'JetBrains Mono', monospace" font-size="11" fill="#141416" letter-spacing="3">CHAPTER 02 // CREATIVE STRATEGY</text>
+        <text x="0" y="45" font-family="'Anton', sans-serif" font-size="40" fill="#141416" letter-spacing="2">MODULAR IDENTITY MATRICES</text>
+        <text x="0" y="80" font-family="'Space Grotesk', sans-serif" font-size="13" fill="#3A321E">
+          Engineered for omni-channel deployment across print collateral,
+          high-resolution digital key art, and responsive interfaces.
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>

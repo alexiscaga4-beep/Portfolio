@@ -1,52 +1,84 @@
+import * as THREE from 'three';
+
 /**
- * 3D SCROLLYTELLING ENGINE — Three.js
+ * 3D SCROLLYTELLING ENGINE — Three.js & WebGL
  * Alexis Deniel Caga Portfolio
- * 
+ *
  * Manages 3D camera choreography, particle field, interactive meshes,
- * and lighting transitions synchronized to page scroll.
+ * and dynamic lighting synchronized to page scroll and cursor movement.
  */
+export class Portfolio3DScene {
+  private canvas: HTMLCanvasElement;
+  private coordDisplay: HTMLElement | null = null;
+  private scrollProgress: number = 0;
+  private targetScrollProgress: number = 0;
 
-class Portfolio3DScene {
-  constructor() {
-    this.canvas = document.getElementById('webgl-canvas');
-    if (!this.canvas || typeof THREE === 'undefined') {
-      console.warn('Three.js or canvas element not available.');
-      return;
-    }
+  // Mouse tracking state
+  private mouseX: number = 0;
+  private mouseY: number = 0;
+  private targetMouseX: number = 0;
+  private targetMouseY: number = 0;
 
+  // Performance & Clock
+  public isHighPerf: boolean = true;
+  private clock: THREE.Clock = new THREE.Clock();
+  private animationFrameId: number | null = null;
+
+  // Three.js Core
+  private scene!: THREE.Scene;
+  private camera!: THREE.PerspectiveCamera;
+  private cameraTarget!: THREE.Vector3;
+  private renderer!: THREE.WebGLRenderer;
+
+  // Lighting
+  private ambientLight?: THREE.AmbientLight;
+  private keyLight?: THREE.PointLight;
+  private fillLight?: THREE.PointLight;
+  private rimLight?: THREE.DirectionalLight;
+
+  // Scene Objects
+  private particles?: THREE.Points;
+  private heroGroup?: THREE.Group;
+  private torusKnot?: THREE.Mesh;
+  private orbitRing1?: THREE.Mesh;
+  private orbitRing2?: THREE.Mesh;
+
+  // Scroll Waypoints
+  private waypointsGroup?: THREE.Group;
+  private storyPrism?: THREE.Mesh;
+  private galleryOrbit?: THREE.Group;
+  private designIcosa?: THREE.Mesh;
+  private filmTunnel?: THREE.Group;
+  private techCore?: THREE.Mesh;
+
+  // Event handler references for cleanup
+  private onScrollBound: () => void;
+  private onMouseMoveBound: (e: MouseEvent) => void;
+  private onResizeBound: () => void;
+
+  constructor(canvas: HTMLCanvasElement) {
+    this.canvas = canvas;
     this.coordDisplay = document.getElementById('heroCoord');
-    this.scrollProgress = 0;
-    this.targetScrollProgress = 0;
-    
-    // Mouse state
-    this.mouseX = 0;
-    this.mouseY = 0;
-    this.targetMouseX = 0;
-    this.targetMouseY = 0;
 
-    // Performance settings
-    this.isHighPerf = true;
-    this.clock = new THREE.Clock();
+    this.onScrollBound = () => this.handleScroll();
+    this.onMouseMoveBound = (e: MouseEvent) => this.handleMouseMove(e);
+    this.onResizeBound = () => this.handleResize();
 
     this.init();
   }
 
-  init() {
-    // 1. Scene & Fog
+  private init(): void {
+    // 1. Scene & Depth Fog
     this.scene = new THREE.Scene();
     this.scene.fog = new THREE.FogExp2(0x09090b, 0.035);
 
-    // 2. Camera
-    this.camera = new THREE.PerspectiveCamera(
-      60,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      100
-    );
+    // 2. Camera Setup
+    const aspect = window.innerWidth / (window.innerHeight || 1);
+    this.camera = new THREE.PerspectiveCamera(60, aspect, 0.1, 100);
     this.camera.position.set(0, 0, 8);
     this.cameraTarget = new THREE.Vector3(0, 0, 0);
 
-    // 3. Renderer
+    // 3. Renderer Configuration
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
       antialias: true,
@@ -60,7 +92,7 @@ class Portfolio3DScene {
     // 4. Lights
     this.setupLights();
 
-    // 5. 3D Objects & Environments
+    // 5. 3D Elements
     this.createParticleUniverse();
     this.createHeroGeometry();
     this.createSectionWaypoints();
@@ -68,32 +100,32 @@ class Portfolio3DScene {
     // 6. Event Listeners
     this.bindEvents();
 
-    // 7. Render Loop
+    // 7. Start Animation Loop
     this.animate();
   }
 
-  setupLights() {
+  private setupLights(): void {
     // Ambient Light
     this.ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     this.scene.add(this.ambientLight);
 
-    // Key Point Light (Follows Camera / Orange Signal)
+    // Key Point Light (Orange Signal)
     this.keyLight = new THREE.PointLight(0xff5a36, 2.5, 30);
     this.keyLight.position.set(2, 3, 5);
     this.scene.add(this.keyLight);
 
-    // Secondary Accent Light (Amber / Cyan)
+    // Secondary Accent Light (Amber)
     this.fillLight = new THREE.PointLight(0xffd23f, 1.8, 30);
     this.fillLight.position.set(-3, -2, 4);
     this.scene.add(this.fillLight);
 
-    // Directional Rim Light
+    // Directional Rim Light (Cyan)
     this.rimLight = new THREE.DirectionalLight(0x38bdf8, 0.8);
     this.rimLight.position.set(0, 10, -5);
     this.scene.add(this.rimLight);
   }
 
-  createParticleUniverse() {
+  private createParticleUniverse(): void {
     const count = 1200;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(count * 3);
@@ -126,7 +158,6 @@ class Portfolio3DScene {
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-    // Particle Material
     const material = new THREE.PointsMaterial({
       size: 0.12,
       vertexColors: true,
@@ -139,7 +170,7 @@ class Portfolio3DScene {
     this.scene.add(this.particles);
   }
 
-  createHeroGeometry() {
+  private createHeroGeometry(): void {
     this.heroGroup = new THREE.Group();
 
     // 1. Central Wireframe Torus Knot
@@ -172,8 +203,7 @@ class Portfolio3DScene {
     this.scene.add(this.heroGroup);
   }
 
-  createSectionWaypoints() {
-    // Floating 3D Geometric Landmarks along the scroll path
+  private createSectionWaypoints(): void {
     this.waypointsGroup = new THREE.Group();
 
     // Waypoint 1: Story Prism (Y = -6)
@@ -247,50 +277,43 @@ class Portfolio3DScene {
     this.scene.add(this.waypointsGroup);
   }
 
-  bindEvents() {
-    window.addEventListener('scroll', () => {
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      this.targetScrollProgress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
-    }, { passive: true });
-
-    window.addEventListener('mousemove', (e) => {
-      this.targetMouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-      this.targetMouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-    }, { passive: true });
-
-    window.addEventListener('resize', () => this.onResize());
+  private bindEvents(): void {
+    window.addEventListener('scroll', this.onScrollBound, { passive: true });
+    window.addEventListener('mousemove', this.onMouseMoveBound, { passive: true });
+    window.addEventListener('resize', this.onResizeBound);
   }
 
-  onResize() {
+  private handleScroll(): void {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    this.targetScrollProgress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+  }
+
+  private handleMouseMove(e: MouseEvent): void {
+    this.targetMouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+    this.targetMouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+  }
+
+  public handleResize(): void {
     if (!this.renderer || !this.camera) return;
-    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.aspect = window.innerWidth / (window.innerHeight || 1);
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    this.renderer.setPixelRatio(this.isHighPerf ? Math.min(window.devicePixelRatio, 2) : 1);
   }
 
-  updateCameraPath(progress) {
-    // Smooth spline interpolation for camera through 3D storytelling world
-    // Total vertical travel distance: Y from 0 down to -32
+  private updateCameraPath(progress: number): void {
     const currentY = -progress * 32;
-    
-    // Curved X-wave navigation
     const targetX = Math.sin(progress * Math.PI * 3) * 2.8 + (this.mouseX * 0.8);
-    
-    // Z-depth modulation (closer in video and arts, panoramic at hero & skills)
     const targetZ = 8 - Math.sin(progress * Math.PI * 2) * 2.5 + (this.mouseY * 0.5);
 
-    // Smooth inertia camera movement
     this.camera.position.x += (targetX - this.camera.position.x) * 0.06;
     this.camera.position.y += (currentY - this.camera.position.y) * 0.06;
     this.camera.position.z += (targetZ - this.camera.position.z) * 0.06;
 
-    // Camera lookAt point moves slightly ahead
     const lookAtY = this.camera.position.y - 1.2;
     this.cameraTarget.set(0, lookAtY, 0);
     this.camera.lookAt(this.cameraTarget);
 
-    // Dynamic light positioning
     if (this.keyLight) {
       this.keyLight.position.set(
         this.camera.position.x + 2,
@@ -306,24 +329,20 @@ class Portfolio3DScene {
       );
     }
 
-    // Update coordinate HUD text if in viewport
     if (this.coordDisplay && progress < 0.15) {
       this.coordDisplay.textContent = `POS: X: ${this.camera.position.x.toFixed(2)} | Y: ${this.camera.position.y.toFixed(2)} | Z: ${this.camera.position.z.toFixed(2)}`;
     }
   }
 
-  animate() {
-    requestAnimationFrame(() => this.animate());
+  private animate(): void {
+    this.animationFrameId = requestAnimationFrame(() => this.animate());
 
-    const delta = this.clock.getDelta();
     const elapsedTime = this.clock.getElapsedTime();
 
-    // Lerp scroll and mouse
     this.scrollProgress += (this.targetScrollProgress - this.scrollProgress) * 0.08;
     this.mouseX += (this.targetMouseX - this.mouseX) * 0.05;
     this.mouseY += (this.targetMouseY - this.mouseY) * 0.05;
 
-    // Update Camera
     this.updateCameraPath(this.scrollProgress);
 
     // Rotate Hero Geometry
@@ -362,19 +381,23 @@ class Portfolio3DScene {
       this.particles.rotation.y = elapsedTime * 0.03;
     }
 
-    // Render
     this.renderer.render(this.scene, this.camera);
   }
 
-  setPerformanceMode(isHigh) {
+  public setPerformanceMode(isHigh: boolean): void {
     this.isHighPerf = isHigh;
     if (this.renderer) {
       this.renderer.setPixelRatio(isHigh ? Math.min(window.devicePixelRatio, 2) : 1);
     }
   }
-}
 
-// Instantiate globally on DOM load
-window.addEventListener('DOMContentLoaded', () => {
-  window.portfolioScene = new Portfolio3DScene();
-});
+  public destroy(): void {
+    if (this.animationFrameId !== null) {
+      cancelAnimationFrame(this.animationFrameId);
+    }
+    window.removeEventListener('scroll', this.onScrollBound);
+    window.removeEventListener('mousemove', this.onMouseMoveBound);
+    window.removeEventListener('resize', this.onResizeBound);
+    this.renderer.dispose();
+  }
+}

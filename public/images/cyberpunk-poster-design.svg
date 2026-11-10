@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cyberBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0B12"/>
+      <stop offset="50%" stop-color="#120E1F"/>
+      <stop offset="100%" stop-color="#07060A"/>
+    </linearGradient>
+    <linearGradient id="neonGlowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF3366"/>
+      <stop offset="50%" stop-color="#FF5A36"/>
+      <stop offset="100%" stop-color="#00F0FF"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#7000FF"/>
+    </linearGradient>
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="posterShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="20" dy="30" stdDeviation="35" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="900" fill="url(#cyberBg)"/>
+
+  <!-- Background Isometric / Matrix Grid -->
+  <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+    <line x1="0" y1="150" x2="1200" y2="150"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="450" x2="1200" y2="450"/>
+    <line x1="0" y1="600" x2="1200" y2="600"/>
+    <line x1="0" y1="750" x2="1200" y2="750"/>
+    <line x1="200" y1="0" x2="200" y2="900"/>
+    <line x1="400" y1="0" x2="400" y2="900"/>
+    <line x1="600" y1="0" x2="600" y2="900"/>
+    <line x1="800" y1="0" x2="800" y2="900"/>
+    <line x1="1000" y1="0" x2="1000" y2="900"/>
+  </g>
+
+  <!-- Left: Editorial Context & Project Info -->
+  <g transform="translate(100, 140)">
+    <text x="0" y="30" font-family="'JetBrains Mono', monospace" font-size="12" fill="#00F0FF" letter-spacing="4">CASE STUDY 02 // POSTER ART DIRECTION</text>
+    <text x="0" y="85" font-family="'Anton', sans-serif" font-size="58" fill="#FFFFFF" letter-spacing="2">CYBERPUNK</text>
+    <text x="0" y="145" font-family="'Anton', sans-serif" font-size="58" fill="url(#neonGlowGrad)" letter-spacing="2">EDITORIAL KEY ART</text>
+
+    <text x="0" y="200" font-family="'Space Grotesk', sans-serif" font-size="15" fill="#A0A0BA" width="380">
+      <tspan x="0" dy="0">High-impact typography poster design combining Swiss</tspan>
+      <tspan x="0" dy="24">grid discipline with neo-noir chromatic aberration.</tspan>
+      <tspan x="0" dy="24">Bespoke Japanese glyph typesetting &amp; print specifications.</tspan>
+    </text>
+
+    <!-- Layout Details Tags -->
+    <g transform="translate(0, 290)">
+      <rect width="130" height="32" rx="4" fill="rgba(255, 51, 102, 0.15)" stroke="#FF3366" stroke-width="1"/>
+      <text x="65" y="20" font-family="'JetBrains Mono', monospace" font-size="11" fill="#FF3366" text-anchor="middle" font-weight="600">POSTER DESIGN</text>
+
+      <rect x="145" width="130" height="32" rx="4" fill="rgba(0, 240, 255, 0.15)" stroke="#00F0FF" stroke-width="1"/>
+      <text x="210" y="20" font-family="'JetBrains Mono', monospace" font-size="11" fill="#00F0FF" text-anchor="middle" font-weight="600">TYPOGRAPHY</text>
+
+      <rect x="290" width="90" height="32" rx="4" fill="rgba(255, 255, 255, 0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+      <text x="335" y="20" font-family="'JetBrains Mono', monospace" font-size="11" fill="#FFFFFF" text-anchor="middle">PRINT B1</text>
+    </g>
+
+    <!-- Technical Specs Box -->
+    <g transform="translate(0, 360)">
+      <rect width="400" height="200" rx="8" fill="#141322" stroke="rgba(255,255,255,0.1)"/>
+      <text x="24" y="32" font-family="'JetBrains Mono', monospace" font-size="11" fill="#00F0FF" letter-spacing="2">TECHNICAL COMPOSITION</text>
+      
+      <line x1="24" y1="46" x2="376" y2="46" stroke="rgba(255,255,255,0.08)"/>
+
+      <g font-family="'JetBrains Mono', monospace" font-size="11" fill="#8E8DA8">
+        <text x="24" y="75">DIMENSIONS:</text>
+        <text x="376" y="75" text-anchor="end" fill="#FFFFFF">700 × 1000 MM (B1 POSTER)</text>
+
+        <text x="24" y="105">COLOR PROFILE:</text>
+        <text x="376" y="105" text-anchor="end" fill="#FFFFFF">CMYK + 2 SPOT PANTONE</text>
+
+        <text x="24" y="135">PAPER STOCK:</text>
+        <text x="376" y="135" text-anchor="end" fill="#FFFFFF">250GSM MATTE COATED VELVET</text>
+
+        <text x="24" y="165">FINISH:</text>
+        <text x="376" y="165" text-anchor="end" fill="#FF5A36">SPOT UV GLOSS ON GLYPHS</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right: High Resolution Editorial Poster Presentation -->
+  <g transform="translate(620, 100)">
+    <!-- Main Poster Frame -->
+    <rect width="480" height="680" rx="4" fill="#0E0D17" stroke="#252438" stroke-width="2" filter="url(#posterShadow)"/>
+
+    <!-- Poster Inner Content -->
+    <!-- Top Bar -->
+    <g transform="translate(30, 40)">
+      <text x="0" y="0" font-family="'JetBrains Mono', monospace" font-size="10" fill="#FF5A36" letter-spacing="3">PROJECT NO. 2026 // VOL. 04</text>
+      <text x="420" y="0" font-family="'JetBrains Mono', monospace" font-size="10" fill="#00F0FF" text-anchor="end" letter-spacing="3">TOKYO / SHIBUYA</text>
+    </g>
+
+    <!-- Japanese Big Glyph Accent -->
+    <g transform="translate(30, 90)">
+      <text x="0" y="70" font-family="'Anton', sans-serif" font-size="82" fill="#FFFFFF" letter-spacing="1">電脳都市</text>
+      <text x="280" y="40" font-family="'JetBrains Mono', monospace" font-size="11" fill="#FF3366">/// NEO-NOIR</text>
+      <text x="280" y="60" font-family="'JetBrains Mono', monospace" font-size="11" fill="#A0A0BA">GRID SPEC 1.4</text>
+    </g>
+
+    <!-- Poster Centerpiece Art Element -->
+    <g transform="translate(30, 200)">
+      <!-- Gradient Backdrop Card -->
+      <rect width="420" height="240" rx="6" fill="#18152B"/>
+      
+      <!-- Vector Geometric Sun / Grid Overlay -->
+      <circle cx="210" cy="120" r="90" fill="url(#neonGlowGrad)" opacity="0.85" filter="url(#neonGlow)"/>
+      
+      <!-- Horizon Cut Lines -->
+      <g stroke="#0E0D17" stroke-width="3">
+        <line x1="120" y1="130" x2="300" y2="130"/>
+        <line x1="120" y1="145" x2="300" y2="145"/>
+        <line x1="120" y1="162" x2="300" y2="162"/>
+        <line x1="120" y1="182" x2="300" y2="182"/>
+      </g>
+
+      <!-- Center Typography Accent -->
+      <text x="210" y="115" font-family="'Anton', sans-serif" font-size="34" fill="#FFFFFF" text-anchor="middle" letter-spacing="6">SYNCHRONICITY</text>
+      <text x="210" y="135" font-family="'JetBrains Mono', monospace" font-size="10" fill="#00F0FF" text-anchor="middle" letter-spacing="4">KINETIC DIGITAL SYSTEM</text>
+    </g>
+
+    <!-- Bottom Editorial Typographic Block -->
+    <g transform="translate(30, 480)">
+      <text x="0" y="24" font-family="'Anton', sans-serif" font-size="36" fill="#FFFFFF" letter-spacing="2">KINETIC ARCHITECTURE</text>
+      <line x1="0" y1="38" x2="420" y2="38" stroke="#FF5A36" stroke-width="2"/>
+
+      <text x="0" y="70" font-family="'Space Grotesk', sans-serif" font-size="11" fill="#A0A0BA">
+        <tspan x="0" dy="0">THE VISUAL RECONSTRUCTION OF URBAN SPACES</tspan>
+        <tspan x="0" dy="16">THROUGH BOLD VECTOR FORMS &amp; RETRO-FUTURIST HIERARCHY.</tspan>
+      </text>
+
+      <!-- Barcode Graphic -->
+      <g transform="translate(0, 110)">
+        <rect width="180" height="30" fill="#FFFFFF"/>
+        <g stroke="#000000" stroke-width="2">
+          <line x1="10" y1="4" x2="10" y2="26"/>
+          <line x1="16" y1="4" x2="16" y2="26" stroke-width="4"/>
+          <line x1="28" y1="4" x2="28" y2="26"/>
+          <line x1="38" y1="4" x2="38" y2="26" stroke-width="3"/>
+          <line x1="50" y1="4" x2="50" y2="26"/>
+          <line x1="60" y1="4" x2="60" y2="26" stroke-width="5"/>
+          <line x1="80" y1="4" x2="80" y2="26"/>
+          <line x1="92" y1="4" x2="92" y2="26" stroke-width="4"/>
+          <line x1="110" y1="4" x2="110" y2="26"/>
+          <line x1="125" y1="4" x2="125" y2="26" stroke-width="6"/>
+          <line x1="150" y1="4" x2="150" y2="26"/>
+          <line x1="165" y1="4" x2="165" y2="26" stroke-width="2"/>
+        </g>
+        <text x="210" y="16" font-family="'JetBrains Mono', monospace" font-size="9" fill="#8E8DA8">ISBN 978-0-123456-78-9</text>
+        <text x="210" y="30" font-family="'JetBrains Mono', monospace" font-size="9" fill="#00F0FF">EDITION: 100 LIMITED COPIES</text>
+      </g>
+    </g>
+  </g>
+</svg>
